@@ -132,6 +132,9 @@ F:	package/minimodem/
 N:	Alexander Lukichev <alexander.lukichev@gmail.com>
 F:	package/openpgm/
 
+N:	Alexander Mukhin <alexander.i.mukhin@gmail.com>
+F:	package/tinyproxy/
+
 N:	Alexander Sverdlin <alexander.sverdlin@gmail.com>
 F:	package/mini-snmpd/
 
@@ -463,6 +466,7 @@ F:	package/x264/
 F:	package/x265/
 F:	package/ytree/
 F:	package/znc/
+F:	support/testing/tests/package/test_perl_html_parser.py
 
 N:	Biagio Montaruli <biagio.hkr@gmail.com>
 F:	board/acmesystems/
@@ -2098,6 +2102,7 @@ F:	package/uhttpd/
 F:	package/ustream-ssl/
 
 N:	Refik Tuzakli <tuzakli.refik@gmail.com>
+F:	package/freescale-imx/
 F:	package/paho-mqtt-cpp/
 
 N:	Rémi Rérolle <remi.rerolle@gmail.com>
@@ -2394,21 +2399,34 @@ F:	package/civetweb/
 N:	Thomas De Schampheleire <thomas.de_schampheleire@nokia.com>
 F:	docs/manual/
 F:	package/cereal/
+F:	package/chartjs/
 F:	package/libtelnet/
 F:	package/opkg-utils/
 F:	package/perl-convert-asn1/
 F:	package/perl-crypt-blowfish/
 F:	package/perl-crypt-cbc/
 F:	package/perl-crypt-openssl-aes/
+F:	package/perl-crypt-ssleay/
+F:	package/perl-i18n/
+F:	package/perl-locale-maketext-lexicon/
+F:	package/perl-lwp-protocol-https/
 F:	package/perl-math-prime-util/
 F:	package/perl-mime-base64-urlsafe/
 F:	package/perl-mojolicious-plugin-authentication/
+F:	package/perl-mojolicious-plugin-authorization/
+F:	package/perl-mojolicious-plugin-cspheader/
+F:	package/perl-mojolicious-plugin-i18n/
+F:	package/perl-mojolicious-plugin-securityheader/
+F:	package/perl-mozilla-ca/
 F:	package/perl-net-snmp/
 F:	package/perl-net-ssh2/
 F:	package/perl-net-telnet/
+F:	package/perl-path-class/
 F:	package/pigz/
 F:	package/xenomai/
 F:	support/scripts/size-stats
+F:	support/testing/tests/package/test_perl_crypt_ssleay.py
+F:	support/testing/tests/package/test_perl_lwp_protocol_https.py
 F:	utils/size-stats-compare
 F:	toolchain/
 
