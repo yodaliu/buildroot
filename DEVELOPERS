@@ -278,6 +278,8 @@ F:	package/lua-ev/
 F:	package/orbit/
 
 N:	Bartosz Bilas <b.bilas@grinn-global.com>
+F:	board/stmicroelectronics/stm32mp157a-dk1/
+F:	configs/stm32mp157a_dk1_defconfig
 F:	package/python-esptool/
 F:	package/python-pyaes/
 F:	package/qt5/qt5scxml/
@@ -1529,6 +1531,7 @@ F:	package/wilc1000-firmware/
 N:	Maeva Manuel <maeva.manuel@oss.nxp.com>
 F:	board/freescale/imx8qmmek/
 F:	configs/freescale_imx8qmmek_defconfig
+F:	package/freescale-imx/imx-seco/
 
 N:	Mahyar Koshkouei <mahyar.koshkouei@gmail.com>
 F:	package/ffmpeg/
