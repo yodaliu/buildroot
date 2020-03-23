@@ -38,6 +38,7 @@ F:	package/gstreamer1/gst1-plugins-bad/
 F:	package/gstreamer1/gst1-plugins-base/
 F:	package/gstreamer1/gst1-plugins-good/
 F:	package/gstreamer1/gst1-plugins-ugly/
+F:	package/gstreamer1/gst1-python/
 F:	package/gstreamer1/gst1-vaapi/
 F:	package/imx-usb-loader/
 F:	package/janus-gateway/
@@ -84,6 +85,7 @@ F:	package/setools/
 F:	package/sngrep/
 F:	package/spidermonkey/
 F:	package/systemd/
+F:	support/testing/tests/package/test_gst1_python.py
 F:	support/testing/tests/package/test_python_gobject.py
 
 N:	Adam Heinrich <adam@adamh.cz>
@@ -1263,6 +1265,9 @@ F:	package/strongswan/
 F:	package/wmctrl/
 F:	package/x11r7/xdriver_xf86-video-imx/
 F:	package/x11r7/xdriver_xf86-video-imx-viv/
+
+N:	Jianhui Zhao <zhaojh329@gmail.com>
+F:	package/rtty/
 
 N:	Joao Pinto <jpinto@synopsys.com>
 F:	board/synopsys/vdk/
