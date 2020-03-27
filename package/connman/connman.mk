@@ -41,7 +41,7 @@ CONNMAN_CONF_OPTS += --with-firewall=iptables
 CONNMAN_DEPENDENCIES += iptables
 else ifeq ($(BR2_PACKAGE_CONNMAN_NFTABLES),y)
 CONNMAN_CONF_OPTS += --with-firewall=nftables
-CONNMAN_DEPENDENCIES += nftables
+CONNMAN_DEPENDENCIES += libmnl nftables
 endif
 
 ifeq ($(BR2_PACKAGE_CONNMAN_LOOPBACK),y)
@@ -68,6 +68,13 @@ ifeq ($(BR2_PACKAGE_CONNMAN_WIFI),y)
 CONNMAN_CONF_OPTS += --enable-wifi
 else
 CONNMAN_CONF_OPTS += --disable-wifi
+endif
+
+ifeq ($(BR2_PACKAGE_CONNMAN_WIREGUARD),y)
+CONNMAN_CONF_OPTS += --enable-wireguard
+CONNMAN_DEPENDENCIES += libmnl
+else
+CONNMAN_CONF_OPTS += --disable-wireguard
 endif
 
 ifeq ($(BR2_PACKAGE_CONNMAN_WISPR),y)

@@ -36,7 +36,7 @@ from urllib3.exceptions import HTTPError
 from multiprocessing import Pool
 
 sys.path.append('utils/')
-from getdeveloperlib import parse_developers
+from getdeveloperlib import parse_developers  # noqa: E402
 
 NVD_START_YEAR = 2002
 NVD_JSON_VERSION = "1.0"
@@ -53,6 +53,7 @@ RM_API_STATUS_NOT_FOUND = 4
 # Used to make multiple requests to the same host. It is global
 # because it's used by sub-processes.
 http_pool = None
+
 
 class Defconfig:
     def __init__(self, name, path):
@@ -142,7 +143,7 @@ class Package:
             if self.infras[0][1] == 'virtual':
                 return False
         except IndexError:
-                return False
+            return False
         return True
 
     def set_infra(self):
@@ -277,7 +278,8 @@ class Package:
 
     def __str__(self):
         return "%s (path='%s', license='%s', license_files='%s', hash='%s', patches=%d)" % \
-            (self.name, self.path, self.is_status_ok('license'), self.is_status_ok('license-files'), self.status['hash'], self.patch_count)
+            (self.name, self.path, self.is_status_ok('license'),
+             self.is_status_ok('license-files'), self.status['hash'], self.patch_count)
 
 
 class CVE:
@@ -334,7 +336,7 @@ class CVE:
             filename = CVE.download_nvd_year(nvd_dir, year)
             try:
                 content = ijson.items(gzip.GzipFile(filename), 'CVE_Items.item')
-            except:
+            except:  # noqa: E722
                 print("ERROR: cannot read %s. Please remove the file then rerun this script" % filename)
                 raise
             for cve in content:
