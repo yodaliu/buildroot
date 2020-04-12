@@ -26,7 +26,6 @@ SYSTEMD_CONF_OPTS += \
 	-Dman=false \
 	-Dima=false \
 	-Dldconfig=false \
-	-Ddefault-dnssec=no \
 	-Ddefault-hierarchy=hybrid \
 	-Dtests=false \
 	-Dsplit-bin=true \
@@ -41,7 +40,6 @@ SYSTEMD_CONF_OPTS += \
 	-Dumount-path=/usr/bin/umount \
 	-Dnobody-group=nogroup \
 	-Didn=true \
-	-Dhomed=false \
 	-Dnss-systemd=true
 
 ifeq ($(BR2_PACKAGE_ACL),y)
@@ -70,6 +68,13 @@ SYSTEMD_DEPENDENCIES += elfutils
 SYSTEMD_CONF_OPTS += -Delfutils=true
 else
 SYSTEMD_CONF_OPTS += -Delfutils=false
+endif
+
+ifeq ($(BR2_PACKAGE_GNUTLS),y)
+SYSTEMD_DEPENDENCIES += gnutls
+SYSTEMD_CONF_OPTS += -Dgnutls=true
+else
+SYSTEMD_CONF_OPTS += -Dgnutls=false
 endif
 
 ifeq ($(BR2_PACKAGE_IPTABLES),y)
@@ -125,6 +130,12 @@ else
 SYSTEMD_CONF_OPTS += -Dpam=false
 endif
 
+ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBFDISK),y)
+SYSTEMD_CONF_OPTS += -Dfdisk=true
+else
+SYSTEMD_CONF_OPTS += -Dfdisk=false
+endif
+
 ifeq ($(BR2_PACKAGE_VALGRIND),y)
 SYSTEMD_DEPENDENCIES += valgrind
 SYSTEMD_CONF_OPTS += -Dvalgrind=true
@@ -155,9 +166,23 @@ endif
 
 ifeq ($(BR2_PACKAGE_LIBGCRYPT),y)
 SYSTEMD_DEPENDENCIES += libgcrypt
-SYSTEMD_CONF_OPTS += -Dgcrypt=true
+SYSTEMD_CONF_OPTS += -Ddefault-dnssec=allow-downgrade -Dgcrypt=true
 else
-SYSTEMD_CONF_OPTS += -Dgcrypt=false
+SYSTEMD_CONF_OPTS += -Ddefault-dnssec=no -Dgcrypt=false
+endif
+
+ifeq ($(BR2_PACKAGE_P11_KIT),y)
+SYSTEMD_DEPENDENCIES += p11-kit
+SYSTEMD_CONF_OPTS += -Dp11kit=true
+else
+SYSTEMD_CONF_OPTS += -Dp11kit=false
+endif
+
+ifeq ($(BR2_PACKAGE_OPENSSL),y)
+SYSTEMD_DEPENDENCIES += openssl
+SYSTEMD_CONF_OPTS += -Dopenssl=true
+else
+SYSTEMD_CONF_OPTS += -Dopenssl=false
 endif
 
 ifeq ($(BR2_PACKAGE_PCRE2),y)
@@ -268,15 +293,22 @@ SYSTEMD_CONF_OPTS += -Dlogind=false
 endif
 
 ifeq ($(BR2_PACKAGE_SYSTEMD_MACHINED),y)
-SYSTEMD_CONF_OPTS += -Dmachined=true
+SYSTEMD_CONF_OPTS += -Dmachined=true -Dnss-mymachines=true
 else
-SYSTEMD_CONF_OPTS += -Dmachined=false
+SYSTEMD_CONF_OPTS += -Dmachined=false -Dnss-mymachines=false
 endif
 
 ifeq ($(BR2_PACKAGE_SYSTEMD_IMPORTD),y)
 SYSTEMD_CONF_OPTS += -Dimportd=true
 else
 SYSTEMD_CONF_OPTS += -Dimportd=false
+endif
+
+ifeq ($(BR2_PACKAGE_SYSTEMD_HOMED),y)
+SYSTEMD_CONF_OPTS += -Dhomed=true
+SYSTEMD_DEPENDENCIES += cryptsetup openssl
+else
+SYSTEMD_CONF_OPTS += -Dhomed=false
 endif
 
 ifeq ($(BR2_PACKAGE_SYSTEMD_HOSTNAMED),y)
@@ -356,10 +388,10 @@ define SYSTEMD_INSTALL_RESOLVCONF_HOOK
 	ln -sf ../run/systemd/resolve/resolv.conf \
 		$(TARGET_DIR)/etc/resolv.conf
 endef
-SYSTEMD_CONF_OPTS += -Dresolve=true
+SYSTEMD_CONF_OPTS += -Dnss-resolve=true -Dresolve=true
 SYSTEMD_RESOLVED_USER = systemd-resolve -1 systemd-resolve -1 * - - - Network Name Resolution Manager
 else
-SYSTEMD_CONF_OPTS += -Dresolve=false
+SYSTEMD_CONF_OPTS += -Dnss-resolve=false -Dresolve=false
 endif
 
 ifeq ($(BR2_PACKAGE_GNUTLS),y)
