@@ -54,6 +54,7 @@ F:	package/nginx-naxsi/
 F:	package/openjdk/
 F:	package/openjdk-bin/
 F:	package/php/
+F:	package/pkcs11-helper/
 F:	package/policycoreutils/
 F:	package/prelink-cross/
 F:	package/polkit/
@@ -278,6 +279,9 @@ F:	package/luaposix/
 F:	package/luasec/
 F:	package/lua-ev/
 F:	package/orbit/
+
+N:	Attila Wagner <attila.wagner@onyxinsight.com>
+F:	package/python-canopen/
 
 N:	Bartosz Bilas <b.bilas@grinn-global.com>
 F:	board/stmicroelectronics/stm32mp157a-dk1/
@@ -1186,9 +1190,11 @@ F:	package/python-aiojobs/
 F:	package/python-aiorwlock/
 F:	package/python-aiosignal/
 F:	package/python-aiozipkin/
+F:	package/python-argon2-cffi/
 F:	package/python-async-lru/
 F:	package/python-async-timeout/
 F:	package/python-brotli/
+F:	package/python-cbor2/
 F:	package/python-cchardet/
 F:	package/python-flatbuffers/
 F:	package/python-frozenlist/
@@ -1196,6 +1202,7 @@ F:	package/python-janus/
 F:	package/python-logstash/
 F:	package/python-multidict/
 F:	package/python-pycares/
+F:	package/python-snappy/
 F:	package/python-sockjs/
 F:	package/python-terminaltables/
 F:	package/python-yarl/
@@ -1840,6 +1847,9 @@ F:	package/libfribidi/
 N:	Min Xu <xuminready@gmail.com>
 F:	package/shadowsocks-libev/
 
+N:	Mircea Gliga <gliga.mircea@gmail.com>
+F:	package/mbuffer/
+
 N:	Mirza Krak <mirza.krak@northern.tech>
 F:	package/mender/
 F:	package/mender-artifact/
@@ -2092,6 +2102,7 @@ F:	package/libxml2/
 F:	package/mongoose/
 F:	package/mxml/
 F:	package/numactl/
+F:	package/python-modbus-tk/
 F:	package/python-periphery/
 F:	package/raspi-gpio/
 F:	package/sbc/
