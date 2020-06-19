@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-JANUS_GATEWAY_VERSION = 0.9.2
+JANUS_GATEWAY_VERSION = 0.10.1
 JANUS_GATEWAY_SITE = $(call github,meetecho,janus-gateway,v$(JANUS_GATEWAY_VERSION))
 JANUS_GATEWAY_LICENSE = GPL-3.0 with OpenSSL exception
 JANUS_GATEWAY_LICENSE_FILES = COPYING
@@ -110,6 +110,13 @@ JANUS_GATEWAY_DEPENDENCIES += libwebsockets
 JANUS_GATEWAY_CONF_OPTS += --enable-websockets
 else
 JANUS_GATEWAY_CONF_OPTS += --disable-websockets
+endif
+
+ifeq ($(BR2_PACKAGE_SYSTEMD),y)
+JANUS_GATEWAY_DEPENDENCIES += systemd
+JANUS_GATEWAY_CONF_OPTS += --enable-systemd-sockets
+else
+JANUS_GATEWAY_CONF_OPTS += --disable-systemd-sockets
 endif
 
 $(eval $(autotools-package))
