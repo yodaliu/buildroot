@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-SYSTEMD_VERSION = 245.7
-SYSTEMD_SITE = $(call github,systemd,systemd-stable,v$(SYSTEMD_VERSION))
+SYSTEMD_VERSION = 246
+SYSTEMD_SITE = $(call github,systemd,systemd,v$(SYSTEMD_VERSION))
 SYSTEMD_LICENSE = LGPL-2.1+, GPL-2.0+ (udev), Public Domain (few source files, see README), BSD-3-Clause (tools/chromiumos)
 SYSTEMD_LICENSE_FILES = LICENSE.GPL2 LICENSE.LGPL2.1 README tools/chromiumos/LICENSE
 SYSTEMD_INSTALL_STAGING = YES
@@ -25,7 +25,6 @@ SYSTEMD_CONF_OPTS += \
 	-Dsysvinit-path= \
 	-Dsysvrcnd-path= \
 	-Dutmp=false \
-	-Dblkid=true \
 	-Dman=false \
 	-Dima=false \
 	-Dldconfig=false \
@@ -42,7 +41,8 @@ SYSTEMD_CONF_OPTS += \
 	-Dmount-path=/usr/bin/mount \
 	-Dumount-path=/usr/bin/umount \
 	-Didn=true \
-	-Dnss-systemd=true
+	-Dnss-systemd=true \
+	-Dportabled=false
 
 ifeq ($(BR2_PACKAGE_ACL),y)
 SYSTEMD_DEPENDENCIES += acl
@@ -125,6 +125,13 @@ else
 SYSTEMD_CONF_OPTS += -Dbzip2=false
 endif
 
+ifeq ($(BR2_PACKAGE_ZSTD),y)
+SYSTEMD_DEPENDENCIES += zstd
+SYSTEMD_CONF_OPTS += -Dzstd=true
+else
+SYSTEMD_CONF_OPTS += -Dzstd=false
+endif
+
 ifeq ($(BR2_PACKAGE_LZ4),y)
 SYSTEMD_DEPENDENCIES += lz4
 SYSTEMD_CONF_OPTS += -Dlz4=true
@@ -199,6 +206,36 @@ SYSTEMD_DEPENDENCIES += pcre2
 SYSTEMD_CONF_OPTS += -Dpcre2=true
 else
 SYSTEMD_CONF_OPTS += -Dpcre2=false
+endif
+
+ifeq ($(BR2_PACKAGE_UTIL_LINUX_LIBBLKID),y)
+SYSTEMD_CONF_OPTS += -Dblkid=true
+else
+SYSTEMD_CONF_OPTS += -Dblkid=false
+endif
+
+ifeq ($(BR2_PACKAGE_UTIL_LINUX_NOLOGIN),y)
+SYSTEMD_CONF_OPTS += -Dnologin-path=/sbin/nologin
+else
+SYSTEMD_CONF_OPTS += -Dnologin-path=/bin/false
+endif
+
+ifeq ($(BR2_PACKAGE_SYSTEMD_INITRD),y)
+SYSTEMD_CONF_OPTS += -Dinitrd=true
+else
+SYSTEMD_CONF_OPTS += -Dinitrd=false
+endif
+
+ifeq ($(BR2_PACKAGE_SYSTEMD_KERNELINSTALL),y)
+SYSTEMD_CONF_OPTS += -Dkernel-install=true
+else
+SYSTEMD_CONF_OPTS += -Dkernel-install=false
+endif
+
+ifeq ($(BR2_PACKAGE_SYSTEMD_ANALYZE),y)
+SYSTEMD_CONF_OPTS += -Danalyze=true
+else
+SYSTEMD_CONF_OPTS += -Danalyze=false
 endif
 
 ifeq ($(BR2_PACKAGE_SYSTEMD_JOURNAL_GATEWAY),y)
@@ -658,7 +695,11 @@ HOST_SYSTEMD_CONF_OPTS = \
 	-Dtests=false \
 	-Dglib=false \
 	-Dacl=false \
-	-Dsysvinit-path=''
+	-Dsysvinit-path='' \
+	-Dinitrd=false \
+	-Dxdg-autostart=false \
+	-Dkernel-install=false \
+	-Dsystemd-analyze=false
 
 HOST_SYSTEMD_DEPENDENCIES = \
 	$(BR2_COREUTILS_HOST_DEPENDENCY) \
