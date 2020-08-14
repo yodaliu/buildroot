@@ -5,8 +5,7 @@
 ################################################################################
 
 HOST_MENDER_ARTIFACT_VERSION = 3.4.0
-HOST_MENDER_ARTIFACT_SITE = https://github.com/mendersoftware/mender-artifact/archive
-HOST_MENDER_ARTIFACT_SOURCE = $(HOST_MENDER_ARTIFACT_VERSION).tar.gz
+HOST_MENDER_ARTIFACT_SITE = $(call github,mendersoftware,mender-artifact,$(HOST_MENDER_ARTIFACT_VERSION))
 HOST_MENDER_ARTIFACT_LICENSE = Apache2.0, BSD-2-Clause, BSD-3-Clause, ISC, MIT
 HOST_MENDER_ARTIFACT_LICENSE_FILES = \
 	LICENSE \
@@ -30,6 +29,14 @@ HOST_MENDER_ARTIFACT_LICENSE_FILES = \
 	vendor/github.com/shurcooL/sanitized_anchor_name/LICENSE
 
 HOST_MENDER_ARTIFACT_DEPENDENCIES = host-xz
+
+# By default, go will attempt to download needed modules before building, which
+# is not desirable. This behavior also causes permission issues when cleaning,
+# as go downloads modules as read-only by default. Because mender-artifact
+# includes the modules in the vendor directory, mod=vendor prevents the package
+# from downloading the go modules during the build process and prevents
+# permission issues when cleaning.
+HOST_MENDER_ARTIFACT_GO_ENV = GOFLAGS="-mod=vendor"
 
 HOST_MENDER_ARTIFACT_LDFLAGS = -X main.Version=$(HOST_MENDER_ARTIFACT_VERSION)
 
