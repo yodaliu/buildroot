@@ -144,6 +144,7 @@ F:	package/putty/
 
 N:	Alexander Egorenkov <egorenar-dev@posteo.net>
 F:	package/makedumpfile/
+F:	package/multipath-tools/
 
 N:	Alexander Kurz <akurz@blala.de>
 F:	package/minimodem/
@@ -1133,6 +1134,7 @@ F:	package/squeezelite/
 
 N:	Horatiu Vultur <horatiu.vultur@microchip.com>
 F:	package/easyframes/
+F:	package/mrp/
 
 N:	Ian Haylock <haylocki@yahoo.co.uk>
 F:	package/python-rpi-gpio/
@@ -1422,9 +1424,11 @@ N:	Joshua Henderson <joshua.henderson@microchip.com>
 F:	package/qt5/qt5wayland/
 
 N:	Jugurtha BELKALEM <jugurtha.belkalem@smile.fr>
+F:	package/python-aiofiles/
 F:	package/python-crayons/
 F:	package/python-cycler/
 F:	package/python-matplotlib/
+F:	package/python-opcua-asyncio/
 F:	package/python-piexif/
 
 N:	Juha Rantanen <juha@codercoded.com>
@@ -1625,10 +1629,15 @@ F:	package/luaossl/
 F:	package/murata-cyw-fw/
 F:	package/netdata/
 F:	package/python-ansicolors/
+F:	package/python-iniconfig/
 F:	package/python-packaging/
+F:	package/python-pluggy/
+F:	package/python-pytest/
 F:	package/rs485conf/
 F:	package/turbolua/
+F:	support/testing/tests/package/sample_python_pytest.py
 F:	support/testing/tests/package/test_netdata.py
+F:	support/testing/tests/package/test_python_pytest.py
 
 N:	Marcus Folkesson <marcus.folkesson@gmail.com>
 F:	package/libostree/
