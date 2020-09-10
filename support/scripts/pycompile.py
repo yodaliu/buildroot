@@ -6,11 +6,13 @@ when a python byte code generation failed.
 Inspired from:
    http://stackoverflow.com/questions/615632/how-to-detect-errors-from-compileall-compile-dir
 '''
+
 from __future__ import print_function
-import sys
-import py_compile
-import compileall
+
 import argparse
+import compileall
+import py_compile
+import sys
 
 
 def check_for_errors(comparison):
@@ -58,12 +60,19 @@ class ReportProblem(int):
         return not self == other
 
 
-parser = argparse.ArgumentParser(description='Compile Python source files in a directory tree.')
-parser.add_argument("target", metavar='DIRECTORY',
-                    help='Directory to scan')
-parser.add_argument("--force", action='store_true',
-                    help="Force compilation even if alread compiled")
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("target", metavar="TARGET",
+                        help="Directory to scan")
+    parser.add_argument("--force", action="store_true",
+                        help="Force compilation even if already compiled")
 
-args = parser.parse_args()
+    args = parser.parse_args()
 
-compileall.compile_dir(args.target, force=args.force, quiet=ReportProblem())
+    compileall.compile_dir(args.target, force=args.force, quiet=ReportProblem())
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
