@@ -1315,6 +1315,9 @@ N:	Joao Pinto <jpinto@synopsys.com>
 F:	board/synopsys/vdk/
 F:	configs/snps_aarch64_vdk_defconfig
 
+N:	Jochen Baltes <jochen.baltes@gmail.com>
+F:	package/altera-stapl
+
 N:	Joel Carlson <JoelsonCarl@gmail.com>
 F:	package/c-capnproto/
 F:	package/capnproto/
@@ -2384,6 +2387,7 @@ N:	Sergio Prado <sergio.prado@e-labworks.com>
 F:	board/toradex/apalis-imx6/
 F:	configs/toradex_apalis_imx6_defconfig
 F:	package/aoetools/
+F:	package/asn1c/
 F:	package/azure-iot-sdk-c/
 F:	package/curlpp/
 F:	package/daq/
