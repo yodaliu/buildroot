@@ -511,6 +511,10 @@ N:	Biagio Montaruli <biagio.hkr@gmail.com>
 F:	board/acmesystems/
 F:	configs/acmesystems_*
 
+N:	Bilal Wasim <bilalwasim676@gmail.com>
+F:	board/chromebook/elm/
+F:	configs/chromebook_elm_defconfig
+
 N:	Bogdan Radulescu <bogdan@nimblex.net>
 F:	package/iftop/
 F:	package/ncdu/
@@ -693,6 +697,9 @@ F:	package/openldap/
 
 N:	David du Colombier <0intro@gmail.com>
 F:	package/x264/
+
+N:	David GOUARIN <dgouarin@gmail.com>
+F:	package/librelp/
 
 N:	David Lechner <david@lechnology.com>
 F:	board/lego/ev3/
@@ -2104,8 +2111,8 @@ F:	package/dillo/
 F:	package/edid-decode/
 F:	package/ell/
 F:	package/ghostscript-fonts/
+F:	package/gstreamer1/gst1-devtools/
 F:	package/gstreamer1/gst1-interpipe/
-F:	package/gstreamer1/gst1-validate/
 F:	package/gstreamer1/gstreamer1-editing-services/
 F:	package/iwd/
 F:	package/libevdev/
