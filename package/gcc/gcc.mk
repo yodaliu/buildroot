@@ -141,6 +141,14 @@ ifeq ($(BR2_sparc)$(BR2_sparc64),y)
 HOST_GCC_COMMON_CONF_OPTS += --disable-libsanitizer
 endif
 
+# The logic in libbacktrace/configure.ac to detect if __sync builtins
+# are available assumes they are as soon as target_subdir is not
+# empty, i.e when cross-compiling. However, some platforms do not have
+# __sync builtins, so help the configure script a bit.
+ifeq ($(BR2_TOOLCHAIN_HAS_SYNC_4),)
+HOST_GCC_COMMON_CONF_ENV += target_configargs="libbacktrace_cv_sys_sync=no"
+endif
+
 # TLS support is not needed on uClibc/no-thread and
 # uClibc/linux-threads, otherwise, for all other situations (glibc,
 # musl and uClibc/NPTL), we need it.
@@ -282,11 +290,6 @@ HOST_GCC_COMMON_CCACHE_HASH_FILES += \
 		$(addsuffix /gcc/*.patch,$(call qstrip,$(BR2_GLOBAL_PATCH_DIR)))))
 ifeq ($(BR2_xtensa),y)
 HOST_GCC_COMMON_CCACHE_HASH_FILES += $(ARCH_XTENSA_OVERLAY_TAR)
-endif
-ifeq ($(ARCH),powerpc)
-ifneq ($(BR2_SOFT_FLOAT),)
-HOST_GCC_COMMON_CCACHE_HASH_FILES += package/gcc/$(GCC_VERSION)/1000-powerpc-link-with-math-lib.patch.conditional
-endif
 endif
 
 # _CONF_OPTS contains some references to the absolute path of $(HOST_DIR)
