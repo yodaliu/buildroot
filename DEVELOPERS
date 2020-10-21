@@ -27,74 +27,24 @@
 #   modify packages that use this infrastructure.
 
 N:	Adam Duskett <aduskett@gmail.com>
-F:	package/audit/
-F:	package/busybox/
-F:	package/checkpolicy/
-F:	package/cppdb/
 F:	package/gobject-introspection/
-F:	package/gstreamer1/gstreamer1/
-F:	package/gstreamer1/gstreamer1-mm/
-F:	package/gstreamer1/gst1-plugins-bad/
-F:	package/gstreamer1/gst1-plugins-base/
-F:	package/gstreamer1/gst1-plugins-good/
-F:	package/gstreamer1/gst1-plugins-ugly/
-F:	package/gstreamer1/gst1-python/
-F:	package/gstreamer1/gst1-vaapi/
-F:	package/imx-usb-loader/
 F:	package/janus-gateway/
 F:	package/json-for-modern-cpp/
-F:	package/libabseil-cpp/
-F:	package/libblockdev/
-F:	package/libbytesize/
-F:	package/libcpprestsdk/
-F:	package/libcutl/
-F:	package/libodb/
-F:	package/libodb-pgsql/
 F:	package/libressl/
 F:	package/libselinux/
 F:	package/libsemanage/
 F:	package/libsepol/
-F:	package/libtextstyle/
-F:	package/libwebsockets/
-F:	package/mender-grubenv/
-F:	package/nginx-naxsi/
-F:	package/odb/
 F:	package/openjdk/
 F:	package/openjdk-bin/
-F:	package/php/
-F:	package/pkcs11-helper/
 F:	package/policycoreutils/
 F:	package/prelink-cross/
-F:	package/polkit/
-F:	package/python3/
-F:	package/python-aioredis/
-F:	package/python-asgiref/
-F:	package/python-channels/
-F:	package/python-channels-redis/
-F:	package/python-daphne/
-F:	package/python-django-enumfields/
-F:	package/python-flask-sqlalchemy/
-F:	package/python-gitdb2/
 F:	package/python-gobject/
-F:	package/python-lockfile/
-F:	package/python-mutagen/
-F:	package/python-nested-dict/
-F:	package/python-pbr/
-F:	package/python-pip/
-F:	package/python-psycopg2/
-F:	package/python-smmap2/
-F:	package/python-sqlalchemy/
-F:	package/python-sqlparse/
-F:	package/python-visitor/
 F:	package/restorecond/
 F:	package/refpolicy/
 F:	package/selinux-python/
 F:	package/semodule-utils/
 F:	package/setools/
-F:	package/sngrep/
-F:	package/spidermonkey/
 F:	package/systemd/
-F:	support/testing/tests/package/test_gst1_python.py
 F:	support/testing/tests/package/test_python_gobject.py
 
 N:	Adam Heinrich <adam@adamh.cz>
@@ -254,7 +204,13 @@ N:	Anthony Viallard <viallard@syscom-instruments.com>
 F:	package/gnuplot/
 
 N:	Antoine Ténart <antoine.tenart@bootlin.com>
+F:	package/libselinux/
+F:	package/refpolicy/
 F:	package/wf111/
+F:	support/testing/tests/core/test_selinux/
+F:	support/testing/tests/core/test_selinux.py
+F:	support/testing/tests/init/test_systemd_selinux/
+F:	support/testing/tests/init/test_systemd_selinux.py
 
 N:	Antony Pavlov <antonynpavlov@gmail.com>
 F:	package/lsscsi/
@@ -725,6 +681,9 @@ F:	package/tcllib/
 N:	Denis Bodor <lefinnois@lefinnois.net>
 F:	package/libstrophe/
 
+N:	Derrick Lyndon Pallas <derrick@meter.com>
+F:	package/ipcalc/
+
 N:	Dimitrios Siganos <dimitris@siganos.org>
 F:	package/wireless-regdb/
 
@@ -1136,6 +1095,7 @@ F:	package/python-sip/
 F:	package/uhd/
 
 N:	Heiko Thiery <heiko.thiery@gmail.com>
+F:	package/altera-stapl/
 F:	package/ipmitool/
 F:	package/libnetconf2/
 F:	package/libyang/
@@ -1847,6 +1807,9 @@ F:	package/python-wsaccel/
 N:	Max Filippov <jcmvbkbc@gmail.com>
 F:	arch/Config.in.xtensa
 
+N:	Maxim Kochetkov <fido_max@inbox.ru>
+F:	package/timescaledb/
+
 N:	Maxime Hadjinlian <maxime.hadjinlian@gmail.com>
 F:	package/babeld/
 F:	package/dante/
@@ -2332,6 +2295,7 @@ F:	package/davfs2/
 
 N:	Ryan Barnett <ryan.barnett@rockwellcollins.com>
 F:	package/atftp/
+F:	package/c-periphery/
 F:	package/miraclecast/
 F:	package/python-pysnmp/
 F:	package/python-pysnmp-mibs/
@@ -2426,6 +2390,9 @@ F:	package/traceroute/
 F:	package/tunctl/
 F:	package/ubus/
 F:	package/wolfssl/
+
+N:	Shyam Saini <shyam.saini@savoirfairelinux.com>
+F:	package/cukinia/
 
 N:	Simon Dawson <spdawson@gmail.com>
 F:	boot/at91bootstrap3/
@@ -2527,6 +2494,9 @@ F:	configs/rock_pi_n8_defconfig
 F:	configs/rock_pi_n10_defconfig
 F:	configs/rockpro64_defconfig
 F:	package/arm-gnu-a-toolchain/
+
+N:	Sven Fischer <sven@leiderfischer.de>
+F:	package/qt5/qt5remoteobjects/
 
 N:	Sven Haardiek <sven.haardiek@iotec-gmbh.de>
 F:	package/lcdproc/
@@ -2715,6 +2685,8 @@ N:	Wade Berrier <wberrier@gmail.com>
 F:	package/ngrep/
 
 N:	Waldemar Brodkorb <wbx@openadk.org>
+F:	package/mksh/
+F:	package/ruby/
 F:	package/uclibc/
 F:	package/uclibc-ng-test/
 

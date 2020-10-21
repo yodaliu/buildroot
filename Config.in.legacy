@@ -146,6 +146,100 @@ endif
 
 comment "Legacy options removed in 2020.11"
 
+config BR2_PACKAGE_LIBCROCO
+	bool "libcroco package was removed"
+	select BR2_LEGACY
+	help
+	  This package has been removed as it is affected by several
+	  security issues such as CVE-2020-12825 which will never be
+	  fixed as libcroco has been archived.
+
+config BR2_PACKAGE_BELLAGIO
+	bool "bellagio package was removed"
+	select BR2_LEGACY
+	help
+	  This package has been removed as it is not maintained anymore
+	  (no release since 2011).
+
+config BR2_PACKAGE_SYSTEMD_JOURNAL_GATEWAY
+	bool "systemd-journal-gatewayd now in systemd-journal-remote"
+	select BR2_LEGACY
+	select BR2_PACKAGE_SYSTEMD_JOURNAL_REMOTE
+	help
+	  All system journal remote programs are now enabled using
+	  BR2_PACKAGE_SYSTEMD_JOURNAL_REMOTE.
+
+config BR2_TARGET_UBOOT_BOOT_SCRIPT
+	bool "u-boot script generation was moved"
+	select BR2_LEGACY
+	select BR2_PACKAGE_HOST_UBOOT_TOOLS
+	select BR2_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT
+	help
+	  Migrated U-Boot script generation to uboot-tools
+
+# Note: BR2_TARGET_UBOOT_BOOT_SCRIPT_SOURCE is still referenced from
+# package/uboot-tools/Config.in
+config BR2_TARGET_UBOOT_BOOT_SCRIPT_SOURCE
+	string "The uboot script source string has been renamed"
+	depends on BR2_TARGET_UBOOT_BOOT_SCRIPT
+	help
+	  Migrated U-Boot script generation to uboot-tools.
+	  New option is named
+	  BR2_PACKAGE_HOST_UBOOT_TOOLS_BOOT_SCRIPT_SOURCE
+
+config BR2_TARGET_UBOOT_ENVIMAGE
+	bool "u-boot env generation was moved"
+	select BR2_LEGACY
+	select BR2_PACKAGE_HOST_UBOOT_TOOLS
+	select BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE
+	help
+	  Migrated U-Boot env generation to uboot-tools
+
+# Note: BR2_TARGET_UBOOT_ENVIMAGE_SOURCE is still referenced from
+# package/uboot-tools/Config.in
+config BR2_TARGET_UBOOT_ENVIMAGE_SOURCE
+	string "The uboot env image source string has been renamed"
+	depends on BR2_TARGET_UBOOT_ENVIMAGE
+	help
+	  Migrated U-Boot env generation to uboot-tools.
+	  New option is named
+	  BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SOURCE
+
+# Note: BR2_TARGET_UBOOT_ENVIMAGE_SIZE is still referenced from
+# package/uboot-tools/Config.in
+config BR2_TARGET_UBOOT_ENVIMAGE_SIZE
+	string "The uboot env image size string has been renamed"
+	depends on BR2_TARGET_UBOOT_ENVIMAGE
+	help
+	  Migrated U-Boot env generation to uboot-tools.
+	  New option is named BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_SIZE
+
+config BR2_TARGET_UBOOT_ENVIMAGE_REDUNDANT
+	bool "u-boot env generation was moved"
+	depends on BR2_TARGET_UBOOT_ENVIMAGE
+	select BR2_PACKAGE_HOST_UBOOT_TOOLS_ENVIMAGE_REDUNDANT
+	help
+	  Migrated U-Boot env generation to uboot-tools
+
+config BR2_PACKAGE_KISMET_CLIENT
+	bool "kismet client support was removed"
+	select BR2_LEGACY
+	help
+	  Kismet client support was removed since version 2019-04-R1.
+
+config BR2_PACKAGE_KISMET_DRONE
+	bool "kismet drone support was removed"
+	select BR2_LEGACY
+	help
+	  Kismet drone support was removed since version 2019-04-R1.
+
+config BR2_GCC_VERSION_7_X
+	bool "gcc 7.x support removed"
+	select BR2_LEGACY
+	help
+	  Support for gcc version 7.x has been removed. The current
+	  default version (9.x or later) has been selected instead.
+
 config BR2_PACKAGE_GST1_VALIDATE
 	bool "gst1-validate was moved to gst1-devtools"
 	select BR2_PACKAGE_GST1_DEVTOOLS

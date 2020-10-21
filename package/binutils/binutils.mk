@@ -11,7 +11,7 @@ ifeq ($(BINUTILS_VERSION),)
 ifeq ($(BR2_arc),y)
 BINUTILS_VERSION = arc-2020.03-release
 else
-BINUTILS_VERSION = 2.33.1
+BINUTILS_VERSION = 2.34
 endif
 endif # BINUTILS_VERSION
 
@@ -93,6 +93,7 @@ HOST_BINUTILS_CONF_OPTS = \
 	--enable-static \
 	--with-sysroot=$(STAGING_DIR) \
 	--enable-poison-system-directories \
+	--without-debuginfod \
 	$(BINUTILS_DISABLE_GDB_CONF_OPTS) \
 	$(BINUTILS_EXTRA_CONFIG_OPTIONS)
 
