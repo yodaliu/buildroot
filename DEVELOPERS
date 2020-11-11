@@ -182,10 +182,9 @@ F:	package/pkg-golang.mk
 N:	Anthony Viallard <viallard@syscom-instruments.com>
 F:	package/gnuplot/
 
-N:	Antoine Ténart <antoine.tenart@bootlin.com>
+N:	Antoine Tenart <atenart@kernel.org>
 F:	package/libselinux/
 F:	package/refpolicy/
-F:	package/wf111/
 F:	support/testing/tests/core/test_selinux/
 F:	support/testing/tests/core/test_selinux.py
 F:	support/testing/tests/init/test_systemd_selinux/
