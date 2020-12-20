@@ -39,6 +39,10 @@ else ifeq ($(BR2_ARM_CPU_ARMV6),y)
 GO_GOARM = 6
 else ifeq ($(BR2_ARM_CPU_ARMV7A),y)
 GO_GOARM = 7
+else ifeq ($(BR2_ARM_CPU_ARMV8A),y)
+# Go doesn't support 32-bit GOARM=8 (https://github.com/golang/go/issues/29373)
+# but can still benefit from amrv7 optimisations
+GO_GOARM = 7
 endif
 else ifeq ($(BR2_aarch64),y)
 GO_GOARCH = arm64
@@ -99,8 +103,8 @@ HOST_GO_HOST_ENV = \
 	$(HOST_GO_COMMON_ENV) \
 	GOARCH="" \
 	GOCACHE="$(HOST_GO_HOST_CACHE)" \
-	CC="$(HOST_CCNOCCACHE)" \
-	CXX="$(HOST_CXXNOCCACHE)" \
+	CC="$(HOSTCC_NOCCACHE)" \
+	CXX="$(HOSTCXX_NOCCACHE)" \
 	CGO_CFLAGS="$(HOST_CFLAGS)" \
 	CGO_CXXFLAGS="$(HOST_CXXFLAGS)" \
 	CGO_LDFLAGS="$(HOST_LDFLAGS)"
