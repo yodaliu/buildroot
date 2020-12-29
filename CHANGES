@@ -1,3 +1,32 @@
+2020.11.1, released December 27th, 2020
+
+	Important / security related fixes.
+
+	Infrastructure:
+	- cmake: fix host ccache handling for CMake 3.19
+	- meson: Forcibly disable binary stripping for
+	  target builds, enable for host builds
+	- golang: Fix HOST / TARGET directories for per-package builds
+
+	Defconfigs: Beaglebone Qt5: Fix ti-sgx related issues
+
+	Updated/fixed packages: apitrace, arm-trusted-firmware,
+	ca-certificates, cryptopp, dhcpcd, dtv-scan-tables,
+	flare-engine, ghostscript, go, haproxy, imagemagick,
+	imx-gpu-viv, jasper, kismet, libcurl, libglib2, libhtp,
+	libopenssl, libressl, libuv, libuvw, lua, mbedtls, mongodb,
+	mutt, ncurses, netsnmp, nodejs, opencv3, openldap, opkg-utils,
+	paho-mqtt-c, python-crc16, python-lxml, python-pyparsing,
+	python-pyqt5, qt5base, rauc, shadowsocks-libev, sqlcipher,
+	suricata, ti-sgx-demos, tinycbor, uclibc-ng-test, unbound,
+	webkitgtk, wpewebkit, wireshark, x11vnc, xen,
+	xserver_xorg-server
+
+	Issues resolved (http://bugs.uclibc.org):
+
+	#13316: beaglebone_qt5_defconfig: PowerVR fails to start
+	#13416: dhcpcd start warning message: no such user dhcpcd
+
 2020.11, released December 2nd, 2020
 
 	Various fixes.
@@ -138,6 +167,42 @@
 	#12911: usb_modeswitch installation race condition
 	#13236: Can't compile linux 5.4.8 (with gcc 10 on host)
 	#13286: The system hangs in vmware workstation on the line..
+
+2020.08.3, released December 27th, 2020
+
+	Important / security related fixes.
+
+	Infrastructure:
+	- cmake: fix host ccache handling for CMake 3.19
+	- meson: Forcibly disable binary stripping for
+	  target builds, enable for host builds
+	- golang: Fix HOST / TARGET directories for per-package builds
+
+	Defconfigs: Beaglebone Qt5: Fix ti-sgx related issues
+
+	Updated/fixed packages: apitrace, arm-trusted-firmware,
+	bustle, c-ares, ca-certificates, cage, cdrkit, cryptopp,
+	dhcpcd, docker-containerd, dtv-scan-tables, flare-engine,
+	ghostscript, gvfs, haproxy, imagemagick, imx-gpu-viv, jasper,
+	jemalloc, jpeg-turbo, libcamera, libcap, libcurl, libglib2,
+	libgpiod, libkrb5, libopenssl, libplist, libressl, libuv,
+	libuvw, lynx, mariadb, mbedtls, minidlna, mongodb, monkey,
+	musl, mutt, ncurses, netsnmp, netsurf, nodejs, opencv3,
+	openldap, openrc, opkg-utils, paho-mqtt-c, php, privoxy,
+	proftpd, python-crc16, python-flask-cors, python-lxml,
+	python-pip, python-pyparsing, python-pyqt5, qemu, qt5base,
+	raptor, rauc, ruby, setserial, shadowsocks-libev, slirp,
+	sqlcipher, thermald, ti-sgx-demos, tinycbor, unbound, vsftpd,
+	wireless-regdb, wireshark, wlroots, x11vnc, xen, xinetd,
+	xserver_xorg-server
+
+	Issues resolved (http://bugs.uclibc.org):
+
+	#13276: libcap builds libcap.pc incorrectly
+	#13316: beaglebone_qt5_defconfig: PowerVR fails to start
+	#13336: thermald-1.9.1 compilation failure with musl 1.2.1
+	#13341: Mistake in /etc/init.d/S70vsftpd
+	#13416: dhcpcd start warning message: no such user dhcpcd
 
 2020.08.2, released November 16th, 2020
 
@@ -672,6 +737,39 @@
 	#12751: OpenJdk package installation issues on	target
 	#12796: Update OpenSSL to Version 1.1.1g to patch  CVE-2020-1967
 	#12811: bootstrap stuck and no login prompt
+
+2020.02.9, released December 27th, 2020
+
+	Important / security related fixes.
+
+	Infrastructure:
+	- cmake: fix host ccache handling for CMake 3.19
+	- meson: Forcibly disable binary stripping for
+	  target builds, enable for host builds
+	- golang: Fix HOST / TARGET directories for per-package builds
+
+	Defconfigs: Beaglebone Qt5: Fix ti-sgx related issues
+
+	Updated/fixed packages: apitrace, arm-trusted-firmware,
+	bustle, c-ares, ca-certificates, cdrkit, cryptopp, dhcpcd,
+	docker-containerd, dtv-scan-tables, flare-engine, ghostscript,
+	haproxy, imagemagick, imx-gpu-viv, jasper, jemalloc,
+	jpeg-turbo, libcap, libcurl, libglib2, libgpiod, libkrb5,
+	libopenssl, libplist, libressl, libuv, libuvw, lynx, mariadb,
+	mbedtls, minidlna, monkey, musl, mutt, ncurses, netsnmp,
+	nodejs, opencv3, openldap, openrc, opkg-utils, paho-mqtt-c,
+	php, privoxy, proftpd, python-crc16, python-flask-cors,
+	python-lxml, python-pip, python-pyparsing, python-pyqt5, qemu,
+	qt5base, raptor, rauc, ruby, setserial, shadowsocks-libev,
+	slirp, sqlcipher, ti-sgx-demos, tinycbor, vsftpd,
+	wireless-regdb, wireshark, x11vnc, xen, xinetd,
+	xserver_xorg-server
+
+	Issues resolved (http://bugs.uclibc.org):
+
+	#13276: libcap builds libcap.pc incorrectly
+	#13316: beaglebone_qt5_defconfig: PowerVR fails to start
+	#13341: Mistake in /etc/init.d/S70vsftpd
 
 2020.02.8, released November 16th, 2020
 
