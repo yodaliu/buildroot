@@ -8,6 +8,12 @@ GDB_VERSION = $(call qstrip,$(BR2_GDB_VERSION))
 GDB_SITE = $(BR2_GNU_MIRROR)/gdb
 GDB_SOURCE = gdb-$(GDB_VERSION).tar.xz
 
+# recent gdb versions (>= 10) have gdbserver moved at the top-level,
+# which requires a different build logic.
+ifeq ($(BR2_GDB_VERSION_10),y)
+GDB_GDBSERVER_TOPLEVEL = y
+endif
+
 ifeq ($(BR2_arc),y)
 GDB_SITE = $(call github,foss-for-synopsys-dwc-arc-processors,binutils-gdb,$(GDB_VERSION))
 GDB_SOURCE = gdb-$(GDB_VERSION).tar.gz
@@ -188,8 +194,18 @@ GDB_CONF_OPTS += --disable-tui
 endif
 
 ifeq ($(BR2_PACKAGE_GDB_PYTHON),y)
-GDB_CONF_OPTS += --with-python=$(TOPDIR)/package/gdb/gdb-python-config
+ifeq ($(BR2_PACKAGE_PYTHON3),y)
+# CONF_ENV: for top-level configure; MAKE_ENV: for sub-projects' configure.
+GDB_CONF_ENV += BR_PYTHON_VERSION=$(PYTHON3_VERSION_MAJOR)
+GDB_MAKE_ENV += BR_PYTHON_VERSION=$(PYTHON3_VERSION_MAJOR)
+GDB_DEPENDENCIES += python3
+else
+# CONF_ENV: for top-level configure; MAKE_ENV: for sub-projects' configure.
+GDB_CONF_ENV += BR_PYTHON_VERSION=$(PYTHON_VERSION_MAJOR)
+GDB_MAKE_ENV += BR_PYTHON_VERSION=$(PYTHON_VERSION_MAJOR)
 GDB_DEPENDENCIES += python
+endif
+GDB_CONF_OPTS += --with-python=$(TOPDIR)/package/gdb/gdb-python-config
 else
 GDB_CONF_OPTS += --without-python
 endif

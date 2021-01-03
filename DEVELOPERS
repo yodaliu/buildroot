@@ -505,6 +505,7 @@ F:	linux/linux-ext-aufs.mk
 F:	package/aufs/
 F:	package/aufs-util/
 F:	package/batman-adv/
+F:	package/delve/
 F:	package/docker-cli/
 F:	package/docker-containerd/
 F:	package/docker-engine/
@@ -933,6 +934,7 @@ F:	package/wsapi/
 F:	package/wsapi-fcgi/
 F:	package/wsapi-xavante/
 F:	package/xavante/
+F:	support/testing/tests/package/test_lua*
 F:	utils/scancpan
 
 N:	Frank Hunleth <fhunleth@troodon-software.com>
@@ -1465,6 +1467,9 @@ F:	package/ramsmp/
 N:	Kieran Bingham <kieran.bingham@ideasonboard.com>
 F:	package/libcamera/
 
+N:	Klaus Heinrich Kiwi <klaus@linux.vnet.ibm.com>
+F:	package/wqy-zenhei/
+
 N:	Koen Martens <gmc@sonologic.nl>
 F:	package/capnproto/
 F:	package/linuxconsoletools/
@@ -1486,6 +1491,9 @@ F:	boot/afboot-stm32/
 N:	Leon Anavi <leon.anavi@konsulko.com>
 F:	board/olimex/a10_olinuxino
 F:	configs/olimex_a10_olinuxino_lime_defconfig
+
+N:	Leonid Yuriev <leo@yuriev.ru>
+F:	package/libmdbx/
 
 N:	Lionel Flandrin <lionel@svkt.org>
 F:	package/python-babel/
@@ -1551,6 +1559,7 @@ F:	configs/olpc_xo175_defconfig
 
 N:	Ludovic Desroches <ludovic.desroches@microchip.com>
 F:	board/atmel/
+F:	board/microchip/
 F:	configs/at91*
 F:	configs/atmel_*
 F:	configs/microchip_*
@@ -1595,18 +1604,22 @@ F:	package/luaossl/
 F:	package/murata-cyw-fw/
 F:	package/netdata/
 F:	package/python-ansicolors/
+F:	package/python-bleak/
 F:	package/python-iniconfig/
 F:	package/python-intelhex/
 F:	package/python-packaging/
 F:	package/python-pluggy/
 F:	package/python-pytest/
+F:	package/python-pytest-asyncio/
 F:	package/python-typing-extensions/
 F:	package/python-xmodem/
 F:	package/rs485conf/
 F:	package/turbolua/
 F:	support/testing/tests/package/sample_python_pytest.py
+F:	support/testing/tests/package/sample_python_pytest_asyncio.py
 F:	support/testing/tests/package/test_netdata.py
 F:	support/testing/tests/package/test_python_pytest.py
+F:	support/testing/tests/package/test_python_pytest_asyncio.py
 
 N:	Marcus Folkesson <marcus.folkesson@gmail.com>
 F:	package/libostree/
@@ -1859,6 +1872,8 @@ F:	package/libavl/
 
 N:	Michał Łyszczek <michal.lyszczek@bofc.pl>
 F:	board/altera/socrates_cyclone5/
+F:	board/pine64/rock64
+F:	configs/rock64_defconfig
 F:	configs/socrates_cyclone5_defconfig
 F:	package/netifrc/
 F:	package/openrc/
@@ -2505,6 +2520,11 @@ N:	Thomas De Schampheleire <thomas.de_schampheleire@nokia.com>
 F:	docs/manual/
 F:	package/cereal/
 F:	package/chartjs/
+F:	package/datatables/
+F:	package/datatables-buttons/
+F:	package/datatables-fixedcolumns/
+F:	package/datatables-responsive/
+F:	package/jszip/
 F:	package/libtelnet/
 F:	package/opkg-utils/
 F:	package/perl-convert-asn1/
@@ -2530,6 +2550,7 @@ F:	package/perl-net-ssh2/
 F:	package/perl-net-telnet/
 F:	package/perl-path-class/
 F:	package/pigz/
+F:	package/popperjs/
 F:	package/xenomai/
 F:	support/scripts/size-stats
 F:	support/testing/tests/package/test_perl_lwp_protocol_https.py
@@ -2602,7 +2623,7 @@ F:	toolchain/
 N:	Timo Ketola <timo.ketola@exertus.fi>
 F:	package/fbgrab/
 
-N:	Titouan Christophe <titouan.christophe@railnova.eu>
+N:	Titouan Christophe <titouanchristophe@gmail.com>
 F:	package/avro-c/
 F:	package/mosquitto/
 F:	package/python-avro/
