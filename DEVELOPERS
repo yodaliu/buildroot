@@ -409,6 +409,7 @@ F:	package/perl-timedate/
 F:	package/perl-uri/
 F:	package/perl-www-robotrules/
 F:	package/pixman/
+F:	package/php/
 F:	package/pngquant/
 F:	package/pound/
 F:	package/pulseaudio/
@@ -492,6 +493,8 @@ F:	configs/olimex_a13_olinuxino_defconfig
 F:	configs/orangepi_plus_defconfig
 
 N:	Chris Packham <judge.packham@gmail.com>
+F:	package/coremark/
+F:	package/coremark-pro/
 F:	package/gstreamer1/gst1-shark/
 F:	package/micropython/
 F:	package/micropython-lib/
@@ -2265,6 +2268,7 @@ F:	package/liblinear/
 F:	package/lensfun/
 F:	package/libclc/
 F:	package/libgta/
+F:	package/libiec61850/
 F:	package/libspatialindex/
 F:	package/linux-syscall-support/
 F:	package/llvm/
@@ -2277,6 +2281,7 @@ F:	package/ogre/
 F:	package/openpowerlink/
 F:	package/physfs/
 F:	package/piglit/
+F:	package/qemu/
 F:	package/solarus/
 F:	package/stress-ng/
 F:	package/supertux/
@@ -2709,6 +2714,9 @@ F:	package/fwup/
 
 N:	Yair Ben Avraham <yairba@protonmail.com>
 F:	package/gloox/
+
+N:	Yann CARDAILLAC <ycardaillac@sepro-group.com>
+F:	package/open62541/
 
 N:	Yann E. MORIN <yann.morin.1998@free.fr>
 F:	board/friendlyarm/nanopi-neo/
