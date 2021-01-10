@@ -408,8 +408,8 @@ F:	package/perl-netaddr-ip/
 F:	package/perl-timedate/
 F:	package/perl-uri/
 F:	package/perl-www-robotrules/
-F:	package/pixman/
 F:	package/php/
+F:	package/pixman/
 F:	package/pngquant/
 F:	package/pound/
 F:	package/pulseaudio/
@@ -2564,6 +2564,8 @@ F:	toolchain/
 
 N:	Thomas Huth <huth@tuxfamily.org>
 F:	package/ascii-invaders/
+F:	package/frotz/
+F:	package/xorcurses/
 
 N:	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
 F:	arch/Config.in.arm
@@ -2713,6 +2715,7 @@ N:	Wojciech Niziński <niziak@spox.org>
 F:	package/fwup/
 
 N:	Yair Ben Avraham <yairba@protonmail.com>
+F:	package/casync/
 F:	package/gloox/
 
 N:	Yann CARDAILLAC <ycardaillac@sepro-group.com>
