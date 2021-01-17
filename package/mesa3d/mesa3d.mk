@@ -19,12 +19,9 @@ MESA3D_DEPENDENCIES = \
 	host-bison \
 	host-flex \
 	host-python3-mako \
+	expat \
 	libdrm \
 	zlib
-
-ifeq ($(BR2_PACKAGE_EXPAT),y)
-MESA3D_DEPENDENCIES += expat
-endif
 
 MESA3D_CONF_OPTS = \
 	-Dgallium-omx=disabled \
@@ -74,7 +71,7 @@ endif
 else
 MESA3D_CONF_OPTS += \
 	-Dglx=disabled \
-	-Dgallium-xa=false
+	-Dgallium-xa=disabled
 endif
 
 ifeq ($(BR2_ARM_CPU_HAS_NEON),y)
