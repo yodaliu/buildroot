@@ -146,9 +146,17 @@ endif
 
 comment "Legacy options removed in 2021.02"
 
+config BR2_PACKAGE_BOA
+	bool "boa package removed"
+	select BR2_LEGACY
+	help
+	  The boa package was removed as it is affected by multiple
+	  CVEs and is not maintained anymore (no release since 2005).
+
 config BR2_PACKAGE_LINUX_FIRMWARE_IMX_SDMA
 	bool "imx sdma firmware is provided by firmware-imx"
 	select BR2_LEGACY
+	select BR2_PACKAGE_FREESCALE_IMX
 	select BR2_PACKAGE_FIRMWARE_IMX
 	help
 	  linux-firmware provide the same firmware as firmware-imx.
@@ -162,7 +170,7 @@ config BR2_GDB_VERSION_8_2
 	  version such as 8.3 or more recent.
 
 config BR2_PACKAGE_HOST_RCW
-	bool "rcw package was renamed to oriq-rcw"
+	bool "rcw package was renamed to qoriq-rcw"
 	select BR2_PACKAGE_HOST_QORIQ_RCW
 	select BR2_LEGACY
 	help

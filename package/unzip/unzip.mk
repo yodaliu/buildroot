@@ -4,11 +4,12 @@
 #
 ################################################################################
 
-UNZIP_VERSION = 60
-UNZIP_SOURCE = unzip$(UNZIP_VERSION).tgz
+UNZIP_VERSION = 6.0
+UNZIP_SOURCE = unzip$(subst .,,$(UNZIP_VERSION)).tgz
 UNZIP_SITE = ftp://ftp.info-zip.org/pub/infozip/src
 UNZIP_LICENSE = Info-ZIP
 UNZIP_LICENSE_FILES = LICENSE
+UNZIP_CPE_ID_VALID = YES
 
 UNZIP_PATCH = \
 	https://sources.debian.org/data/main/u/unzip/6.0-25/debian/patches/07-increase-size-of-cfactorstr.patch \
