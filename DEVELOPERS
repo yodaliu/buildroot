@@ -332,6 +332,7 @@ F:	package/gli/
 F:	package/glmark2/
 F:	package/gpsd/
 F:	package/hdparm/
+F:	package/inih/
 F:	package/jsoncpp/
 F:	package/kodi*
 F:	package/lame/
@@ -862,7 +863,6 @@ F:	package/librsync/
 F:	package/libsoup/
 F:	package/libsoxr/
 F:	package/libupnp/
-F:	package/libupnp18/
 F:	package/libv4l/
 F:	package/libxslt/
 F:	package/mbedtls/
@@ -894,6 +894,10 @@ F:	configs/freescale_imx6ullevk_defconfig
 
 N:	Falco Hyfing <hyfinglists@gmail.com>
 F:	package/python-pymodbus/
+
+N:	Filip Skoneczny <fskoneczny@gmail.com>
+F:	board/sinovoip/m1-plus
+F:	configs/bananapi_m1_plus_defconfig
 
 N:	Floris Bos <bos@je-eigen-domein.nl>
 F:	package/ipmitool/
