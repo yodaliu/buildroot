@@ -10,9 +10,7 @@ SUDO_LICENSE = ISC, BSD-3-Clause
 SUDO_LICENSE_FILES = doc/LICENSE
 SUDO_CPE_ID_VALID = YES
 SUDO_CPE_ID_VERSION = 1.9.5
-SUDO_CPE_ID_VERSION_MINOR = p1
-# We're patching lib/eventlog/Makefile.in
-SUDO_AUTORECONF = YES
+SUDO_CPE_ID_VERSION_MINOR = p2
 # This is to avoid sudo's make install from chown()ing files which fails
 SUDO_INSTALL_TARGET_OPTS = INSTALL_OWNER="" DESTDIR="$(TARGET_DIR)" install
 SUDO_CONF_OPTS = \
