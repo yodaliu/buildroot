@@ -144,8 +144,8 @@ class Package:
         self.infras = list()
         with open(os.path.join(brpath, self.path), 'r') as f:
             lines = f.readlines()
-            for l in lines:
-                match = INFRA_RE.match(l)
+            for line in lines:
+                match = INFRA_RE.match(line)
                 if not match:
                     continue
                 infra = match.group(1)
@@ -275,7 +275,13 @@ class Package:
             self.status['developers'] = ("warning", "no developers")
 
     def is_status_ok(self, name):
-        return self.status[name][0] == 'ok'
+        return name in self.status and self.status[name][0] == 'ok'
+
+    def is_status_error(self, name):
+        return name in self.status and self.status[name][0] == 'error'
+
+    def is_status_na(self, name):
+        return name in self.status and self.status[name][0] == 'na'
 
     def __eq__(self, other):
         return self.path == other.path
@@ -352,7 +358,7 @@ def get_pkglist(npackages, package_list):
 def get_config_packages():
     cmd = ["make", "--no-print-directory", "show-info"]
     js = json.loads(subprocess.check_output(cmd))
-    return js.keys()
+    return set([v["name"] for _, v in js.items()])
 
 
 def package_init_make_info():
@@ -874,18 +880,20 @@ def dump_html_pkg(f, pkg):
 
     # CVEs
     td_class = ["centered"]
-    if pkg.status['cve'][0] == "ok":
+    if pkg.is_status_ok("cve"):
         td_class.append("cve-ok")
-    elif pkg.status['cve'][0] == "error":
+    elif pkg.is_status_error("cve"):
         td_class.append("cve-nok")
     else:
         td_class.append("cve-unknown")
     f.write("  <td class=\"%s\">\n" % " ".join(td_class))
-    if pkg.status['cve'][0] == "error":
+    if pkg.is_status_error("cve"):
         for cve in pkg.cves:
             f.write("   <a href=\"https://security-tracker.debian.org/tracker/%s\">%s<br/>\n" % (cve, cve))
-    elif pkg.status['cve'][0] == "na":
+    elif pkg.is_status_na("cve"):
         f.write("    %s" % pkg.status['cve'][1])
+    else:
+        f.write("    N/A\n")
     f.write("  </td>\n")
 
     # CPE ID
@@ -1044,18 +1052,10 @@ def parse_args():
                           help='List of packages (comma separated)')
     parser.add_argument('--nvd-path', dest='nvd_path',
                         help='Path to the local NVD database', type=resolvepath)
-    parser.add_argument("--cpeid", action='store_true')
     args = parser.parse_args()
     if not args.html and not args.json:
         parser.error('at least one of --html or --json (or both) is required')
     return args
-
-
-def cpeid_name(pkg):
-    try:
-        return pkg.cpeid.split(':')[1]
-    except Exception:  # cpeid may be None, or improperly formatted
-        return ''
 
 
 def __main__():
